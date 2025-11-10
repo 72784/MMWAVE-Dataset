@@ -32,3 +32,30 @@ Each file corresponds to one RX location and represents the **relative power map
 ---
 
 ## 🗂️ Dataset Structure
+dataset/
+├── RX01.csv
+├── RX02.csv
+├── ...
+├── RX43.csv
+└── metadata.json
+
+
+Each `RX##.csv` file contains a **36 × 19 matrix** of relative received-power values (in dB):
+
+| Dimension | Range | Step | Description |
+|------------|--------|------|-------------|
+| AoD | −45° → +45° | 5° | Transmit beam index |
+| AoA | −180° → 180° | 10° | Receive beam index |
+| Values | — | — | Relative received power (dB) |
+
+Example `metadata.json`:
+```json
+{
+  "frequency_GHz": 60,
+  "tx_beams": 19,
+  "rx_beams": 36,
+  "rx_positions": 43,
+  "angular_resolution": {"AoA_deg": 10, "AoD_deg": 5},
+  "measurement_repeats": 3,
+  "unit": "dB"
+}
