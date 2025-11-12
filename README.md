@@ -20,14 +20,26 @@ Each RX sheet represents the relative power map obtained from exhaustive beam se
 ---
 
 ## 🧭 Experimental Setup
-- **Frequency:** 60 GHz (mmWave band)  
-- **Hardware:** Sivers Semiconductors EVK06002 phased-array transceivers  
-- **Environment:** Indoor laboratory (~12 m × 8 m) at CSU Sacramento  
-- **Beam grid:**  
-  - TX: 19 beams over [−45°, +45°] in 5° steps  
-  - RX: 36 beams over [−180°, 180°) in 10° steps  
-  - Total beam pairs: 19 × 36 = 684 per RX position  
-- **Averaging:** Each beam pair measured three times and averaged to suppress noise  
+The dataset was collected through a controlled **60 GHz beam-sweep measurement campaign** conducted in the **Wireless Systems Laboratory, California State University, Sacramento**.
+
+- **Hardware:**  
+  - Sivers Semiconductors **EVK06002** phased-array transceivers operating at **60 GHz** in **analog beamforming mode**.  
+  - The **transmitter (TX)** and **receiver (RX)** were mounted on tripods at a height of **1.6 m** to emulate **user-equipment (UE)–to–access-point (AP)** geometry.  
+  - Received power was recorded using a **National Instruments USRP-2900** connected to the RX via a LabVIEW interface.  
+  - All measurements represent **relative received power (in dB)**, not absolute power in dBm.
+
+- **Environment:**  
+  - Measurements were taken in a **12 m × 8 m indoor laboratory** containing metallic benches, wooden tables, and computers—creating rich **multipath reflections** typical of dense indoor wireless environments.  
+  - The **TX** was fixed at **grid index 53**, while the **RX** was sequentially moved across a **7 × 8 spatial grid (56 points)**.  
+  - A total of **43 LoS positions** were used in the paper for evaluation.
+
+- **Beam Grid Configuration:**  
+  | Parameter | Range | Step | Count |
+  |------------|--------|------|-------|
+  | **TX azimuth scan** | −45° → +45° | 5° | 19 beams |
+  | **RX azimuth scan** | −180° → 180° | 10° | 36 beams |
+  | **Total beam pairs per RX** | — | — | 19 × 36 = 684 |
+  | **Averaging** | Each beam pair measured 3× and averaged | — | Noise reduction |
 
 ---
 
